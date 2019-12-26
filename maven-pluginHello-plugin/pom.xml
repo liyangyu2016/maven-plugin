@@ -30,5 +30,31 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
+  <build>
+  	<plugins>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-invoker-plugin</artifactId>
+  			<version>2.0.0</version>
+  			<configuration>
+  				<projectsDirectory>src/it</projectsDirectory>
+  				<goals>
+  					<goal>install</goal>
+  				</goals>
+  				<postBuildHookScript>validate.groovy</postBuildHookScript>
+  				
+  			</configuration>
+  			<executions>
+  				<execution>
+  					<id>integration-test</id>
+  					<goals>
+  						<goal>install</goal>
+  						<goal>run</goal>
+  					</goals>
+  				</execution>
+  			</executions>
+  		</plugin>
+  	</plugins>
+  </build>
 
 </project>

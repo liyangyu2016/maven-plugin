@@ -76,17 +76,21 @@ public class CountMojo    extends AbstractMojo
 
         try
         {
+        	getLog().info("basedir="+basedir.getAbsolutePath());
+        	getLog().info("sourceDirectory="+sourceDirectory.getAbsolutePath());
             countDir( sourceDirectory );
-
+            getLog().info("testSourceDirectory="+testSourceDirectory.getAbsolutePath());
             countDir( testSourceDirectory );
 
             for ( Resource resource : resources )
             {
+            	 getLog().info("resource="+new File( resource.getDirectory() ).getAbsolutePath());
                 countDir( new File( resource.getDirectory() ) );
             }
 
             for ( Resource resource : testResources )
             {
+            	 getLog().info("testResources="+new File( resource.getDirectory() ).getAbsolutePath());
                 countDir( new File( resource.getDirectory() ) );
             }
         }
@@ -103,7 +107,7 @@ public class CountMojo    extends AbstractMojo
         {
             return;
         }
-
+       
         List<File> collected = new ArrayList<File>();
 
         collectFiles( collected, dir );
