@@ -1,4 +1,4 @@
-package com.test.plugin;
+package com.juvenxu.mvnbook.pluginHello;
 
 import java.io.BufferedReader;
 import java.io.File;
